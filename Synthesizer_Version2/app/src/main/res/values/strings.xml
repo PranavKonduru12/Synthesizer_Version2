@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Synthesizer_Version2</string>
+    <string name="app_name">Synthesizer_version2</string>
+    <string name="button1">First Button</string>
+    <string name="button2">Second Button</string>
 </resources>
