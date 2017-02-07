@@ -17,16 +17,16 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button1"
-        android:id="@+id/button1"
+        android:text="@string/eButton"
+        android:id="@+id/eButton"
         android:onClick="onButton1Click " />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button2"
+        android:text="@string/secondbutton"
         android:id="@+id/button2"
-        android:layout_below="@+id/button1"
+        android:layout_below="@+id/eButton"
         android:layout_alignParentStart="true"
         android:onClick="onButton2Click " />
 </RelativeLayout>
