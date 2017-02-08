@@ -22,19 +22,23 @@ public class SynthesizerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_synthesizer);
 
         button1 = (Button)findViewById(R.id.eButton);
-        button2 = (Button)findViewById(R.id.button2);
+        button2 = (Button)findViewById(R.id.fButton);
         mpE = MediaPlayer.create(this, R.raw.scalee);
         mpF = MediaPlayer.create(this, R.raw.scalef);
     }
 
     public void onButton1Click(View view) {
         //Log.i(TAG, "Button 1 Clicked");
-        Log.e(TAG,"Button 1 Clicked");
+        //Log.e(TAG,"Button 1 Clicked");
+        mpE.seekTo(0);
+        Log.e("SynthesizerActivity", "Button 1 clicked");
         mpE.start();
     }
     public void onButton2Click(View view) {
         //Log.i(TAG, "Button 2 Clicked");
-        Log.e(TAG,"Button 2 Clicked");
+        //Log.e(TAG,"Button 2 Clicked");
+        mpF.seekTo(0);
+        Log.e("SynthesizerActivity", "Button 2 clicked");
         mpF.start();
     }
 
