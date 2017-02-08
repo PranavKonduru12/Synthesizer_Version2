@@ -4,6 +4,7 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.InflateException;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,6 +14,7 @@ public class SynthesizerActivity extends AppCompatActivity {
     private Button button2;
     private MediaPlayer mpE;
     private MediaPlayer mpF;
+    private final int WHOLE_NOTE = 1000;
 
 
 
@@ -27,6 +29,26 @@ public class SynthesizerActivity extends AppCompatActivity {
         mpF = MediaPlayer.create(this, R.raw.scalef);
     }
 
+    public void onClick(View view) {
+        Log.e("SynthesizeerActivity", "Challenge 0 Button clicked");
+        try {
+            mpE.start();
+            delayPlaying(WHOLE_NOTE);
+            mpF.start();
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void delayPlaying(int delay) throws InterruptedException {
+        try {
+            Thread.sleep(delay);
+        }
+        catch (InterruptedException e) {
+            Log.e("SynthesizerActivity", "Autio playback interrupted");
+        }
+    }
     public void onButton1Click(View view) {
         //Log.i(TAG, "Button 1 Clicked");
         //Log.e(TAG,"Button 1 Clicked");
