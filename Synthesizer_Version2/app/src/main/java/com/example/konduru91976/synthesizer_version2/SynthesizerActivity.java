@@ -12,6 +12,7 @@ public class SynthesizerActivity extends AppCompatActivity {
     private static final String TAG = SynthesizerActivity.class.getName();
     private Button button1;
     private Button button2;
+    private Button button3;
     private MediaPlayer mpE;
     private MediaPlayer mpF;
     private final int WHOLE_NOTE = 1000;
@@ -57,6 +58,13 @@ public class SynthesizerActivity extends AppCompatActivity {
         mpE.start();
     }
     public void onButton2Click(View view) {
+        //Log.i(TAG, "Button 2 Clicked");
+        //Log.e(TAG,"Button 2 Clicked");
+        mpF.seekTo(0);
+        Log.e("SynthesizerActivity", "Button 2 clicked");
+        mpF.start();
+    }
+    public void onButton3Click(View view) {
         //Log.i(TAG, "Button 2 Clicked");
         //Log.e(TAG,"Button 2 Clicked");
         mpF.seekTo(0);
