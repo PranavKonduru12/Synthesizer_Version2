@@ -15,7 +15,9 @@ public class SynthesizerActivity extends AppCompatActivity {
     private Button button3;
     private MediaPlayer mpE;
     private MediaPlayer mpF;
+    private MediaPlayer mpG;
     private final int WHOLE_NOTE = 1000;
+    private
 
 
 
@@ -26,8 +28,11 @@ public class SynthesizerActivity extends AppCompatActivity {
 
         button1 = (Button)findViewById(R.id.eButton);
         button2 = (Button)findViewById(R.id.fButton);
+        button3 = (Button)findViewById(R.id.gButton);
         mpE = MediaPlayer.create(this, R.raw.scalee);
         mpF = MediaPlayer.create(this, R.raw.scalef);
+        mpG = MediaPlayer.create(this, R.raw.scaleg);
+
     }
 
     public void onClick(View view) {
@@ -67,9 +72,9 @@ public class SynthesizerActivity extends AppCompatActivity {
     public void onButton3Click(View view) {
         //Log.i(TAG, "Button 2 Clicked");
         //Log.e(TAG,"Button 2 Clicked");
-        mpF.seekTo(0);
-        Log.e("SynthesizerActivity", "Button 2 clicked");
-        mpF.start();
+        mpG.seekTo(0);
+        Log.e("SynthesizerActivity", "Button 3 clicked");
+        mpG.start();
     }
 
 }
