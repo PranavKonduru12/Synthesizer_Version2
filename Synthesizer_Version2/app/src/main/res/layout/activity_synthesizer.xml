@@ -32,7 +32,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/gButton"
-        android:id="@+id/gButton"
-        android:onClick=""/>
+        android:text="@string/mChallenge1"
+        android:id="@+id/mChallenge1"
+        android:onClick="onButton3lick"/>
 </RelativeLayout>
