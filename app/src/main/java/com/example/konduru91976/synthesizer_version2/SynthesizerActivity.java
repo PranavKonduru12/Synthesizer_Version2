@@ -12,7 +12,7 @@ public class SynthesizerActivity extends AppCompatActivity {
     private static final String TAG = SynthesizerActivity.class.getName();
     private Button button1;
     private Button button2;
-    private Button button3;
+    private Button mChallenge1;
     //private Button bu
     private MediaPlayer mpE;
     private MediaPlayer mpF;
@@ -28,6 +28,7 @@ public class SynthesizerActivity extends AppCompatActivity {
 
         button1 = (Button)findViewById(R.id.eButton);
         button2 = (Button)findViewById(R.id.fButton);
+        mChallenge1 = (Button)findViewById(R.id.mChallenge1);
         mpE = MediaPlayer.create(this, R.raw.scalee);
         mpF = MediaPlayer.create(this, R.raw.scalef);
         //mpG = MediaPlayer.create(this, R.raw.scaleg);
