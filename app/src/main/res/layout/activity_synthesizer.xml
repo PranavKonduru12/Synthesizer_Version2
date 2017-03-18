@@ -10,35 +10,53 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.konduru91976.synthesizer_version2.SynthesizerActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/eButton"
-        android:id="@+id/eButton"
-        android:onClick="onButton1Click " />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1">
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/fButton"
-        android:id="@+id/fButton"
-        android:layout_below="@+id/eButton"
-        android:layout_alignParentStart="true"
-        android:onClick="onButton2Click " />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/mChallenge1"
-        android:id="@+id/mChallenge1" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/mChallenge11"
-        android:id="@+id/mChallenge11" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello World!" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/eButton"
+                    android:id="@+id/eButton"
+                    android:onClick="onButton1Click " />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fButton"
+                    android:id="@+id/fButton"
+                    android:layout_below="@+id/eButton"
+                    android:layout_alignParentStart="true"
+                    android:onClick="onButton2Click " />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mChallenge1"
+                    android:id="@+id/mChallenge1" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mChallenge11"
+                    android:id="@+id/mChallenge11" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
