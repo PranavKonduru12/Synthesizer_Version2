@@ -7,13 +7,38 @@ import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
 import android.widget.Button;
+import android.widget.NumberPicker;
 
 public class SynthesizerActivity extends AppCompatActivity {
-    private static final String TAG = SynthesizerActivity.class.getName();
+    //private static final String TAG = SynthesizerActivity.class.getName();
     private Button button1;
     private Button button2;
     private Button mChallenge1;
+    private Button mChallenge2;
     //private Button bu
+
+    private NumberPicker selectNote;
+    private NumberPicker timesToPlay;
+
+    //private static final int WHOLE_NOTE = 1000;
+    private static final int NUMBER_OF_NOTES = 13;
+    private static final int E = 0;
+    private static final int F = 1;
+    private static final int F_SHARP = 2;
+    private static final int G = 3;
+    private static final int G_SHARP = 4;
+    private static final int A = 5;
+    private static final int B_FLAT = 6;
+    private static final int B = 7;
+    private static final int C = 8;
+    private static final int C_SHARP = 9;
+    private static final int D = 10;
+    private static final int D_SHARP = 11;
+    private static final int HIGH_E = 12;
+    private static final int HIGH_F = 13;
+    private static final int HIGH_F_SHARP = 14;
+    private static final String TAG = SynthesizerActivity.class.getName();
+
     private MediaPlayer mpE;
     private MediaPlayer mpF;
     private MediaPlayer mpFs;
@@ -41,6 +66,8 @@ public class SynthesizerActivity extends AppCompatActivity {
         button1 = (Button)findViewById(R.id.eButton);
         button2 = (Button)findViewById(R.id.fButton);
         mChallenge1 = (Button)findViewById(R.id.mChallenge1);
+
+
         mpE = MediaPlayer.create(this, R.raw.scalee);
         mpF = MediaPlayer.create(this, R.raw.scalef);
         mpFs = MediaPlayer.create(this, R.raw.scalefs);
