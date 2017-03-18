@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.NumberPicker;
 
 public class SynthesizerActivity extends AppCompatActivity {
@@ -14,8 +15,9 @@ public class SynthesizerActivity extends AppCompatActivity {
     private Button button1;
     private Button button2;
     private Button mChallenge1;
-    private Button mChallenge2;
-    //private Button bu
+    private Button mChallenge11;
+    private CheckBox challenge11Check;
+    //private Button b
 
     private NumberPicker selectNote;
     private NumberPicker timesToPlay;
@@ -56,6 +58,12 @@ public class SynthesizerActivity extends AppCompatActivity {
     private MediaPlayer mpHighFs;
     private final int WHOLE_NOTE = 1000;
     private final int HALF_NOTE = WHOLE_NOTE/2;
+    private MediaPlayer [] notes = new MediaPlayer[8];
+    private MediaPlayer [] moreNotes = new MediaPlayer[15];
+    private int [] twinkleTwinkle = {A, A, HIGH_E, HIGH_E, HIGH_F_SHARP, HIGH_F_SHARP,
+            HIGH_E, D, D, C_SHARP, C_SHARP, B, B, A};
+    private int [] twinkleVerse2 = {HIGH_E, HIGH_E, D, D, C_SHARP, C_SHARP, B};
+    private int [] twinkleTiming = {4, 4, 4, 4, 4, 4, 2};
 
 
     @Override
@@ -66,7 +74,17 @@ public class SynthesizerActivity extends AppCompatActivity {
         button1 = (Button)findViewById(R.id.eButton);
         button2 = (Button)findViewById(R.id.fButton);
         mChallenge1 = (Button)findViewById(R.id.mChallenge1);
+        mChallenge11 = (Button)findViewById(R.id.mChallenge11);
+        challenge11Check = (CheckBox)findViewById(R.id.challenge11Check);
 
+        selectNote = (NumberPicker)findViewById(R.id.numberPicker);
+        timesToPlay = (NumberPicker)findViewById(R.id.numberPicker2);
+
+        selectNote.setMinValue(0);
+        selectNote.setMaxValue(NUMBER_OF_NOTES);
+
+        timesToPlay.setMinValue(1);
+        timesToPlay.setMaxValue(20);
 
         mpE = MediaPlayer.create(this, R.raw.scalee);
         mpF = MediaPlayer.create(this, R.raw.scalef);
@@ -84,6 +102,9 @@ public class SynthesizerActivity extends AppCompatActivity {
         mpHighF = MediaPlayer.create(this, R.raw.scalehighf);
         mpHighFs = MediaPlayer.create(this, R.raw.scalehighfs);
         //mpG = MediaPlayer.create(this, R.raw.scaleg);
+        notes[0]=mpE;notes[1]=mpFs;notes[2]=mpG;notes[3]=mpA;notes[4]=mpB;notes[5]=mpCs;notes[6]=mpD;notes[7]=mpHighE;
+        moreNotes[0]=mpE;moreNotes[1]=mpF;moreNotes[2]=mpFs;moreNotes[3]=mpG;moreNotes[4]=mpGs;moreNotes[5]=mpA;moreNotes[6]=mpBb;moreNotes[7]=mpB;
+        moreNotes[8]=mpC;moreNotes[9]=mpCs;moreNotes[10]=mpD;moreNotes[11]=mpDs;moreNotes[12]=mpHighE;moreNotes[13]=mpHighF;moreNotes[14]=mpHighFs;
 
     }
 
@@ -141,6 +162,32 @@ public class SynthesizerActivity extends AppCompatActivity {
             mpHighE.start();
             delayPlaying(WHOLE_NOTE/2);
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void onChallenge11Click(View view) {
+        Log.e(TAG, "Challenge 11 Button clicked");
+        for (int note = 0; note < twinkleTwinkle.length; note++) {
+            playSome(moreNotes[twinkleTwinkle[note]], twinkleTiming[note % twinkleTiming.length]);
+        }
+        if (challenge11Check.isChecked()) {
+            for (int i = 0; i < selectNote.getValue(); i++) {
+                for (int note = 0; note < twinkleVerse2.length; note++) {
+                    playSome(moreNotes[twinkleVerse2[note]], twinkleTiming[note % twinkleTiming.length]);
+                }
+            }
+        }
+        for (int note = 0; note < twinkleTwinkle.length; note++) {
+            playSome(moreNotes[twinkleTwinkle[note]], twinkleTiming[note % twinkleTiming.length]);
+        }
+    }
+    private void playSome(MediaPlayer noteToPlay, int wholeNoteDivisor) {
+        try {
+            noteToPlay.seekTo(0);
+            noteToPlay.start();
+            delayPlaying(WHOLE_NOTE / wholeNoteDivisor);
+        }
+        catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
