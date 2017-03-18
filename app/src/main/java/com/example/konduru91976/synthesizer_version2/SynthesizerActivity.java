@@ -16,7 +16,19 @@ public class SynthesizerActivity extends AppCompatActivity {
     //private Button bu
     private MediaPlayer mpE;
     private MediaPlayer mpF;
-    //private MediaPlayer mpG;
+    private MediaPlayer mpFs;
+    private MediaPlayer mpG;
+    private MediaPlayer mpGs;
+    private MediaPlayer mpA;
+    private MediaPlayer mpBb;
+    private MediaPlayer mpB;
+    private MediaPlayer mpC;
+    private MediaPlayer mpCs;
+    private MediaPlayer mpD;
+    private MediaPlayer mpDs;
+    private MediaPlayer mpHighE;
+    private MediaPlayer mpHighF;
+    private MediaPlayer mpHighFs;
     private final int WHOLE_NOTE = 1000;
     private final int HALF_NOTE = WHOLE_NOTE/2;
 
@@ -31,10 +43,31 @@ public class SynthesizerActivity extends AppCompatActivity {
         mChallenge1 = (Button)findViewById(R.id.mChallenge1);
         mpE = MediaPlayer.create(this, R.raw.scalee);
         mpF = MediaPlayer.create(this, R.raw.scalef);
+        mpFs = MediaPlayer.create(this, R.raw.scalefs);
+        mpG = MediaPlayer.create(this, R.raw.scaleg);
+        mpGs = MediaPlayer.create(this, R.raw.scalegs);
+        mpA = MediaPlayer.create(this, R.raw.scalea);
+        mpBb = MediaPlayer.create(this, R.raw.scalebb);
+        mpB = MediaPlayer.create(this, R.raw.scaleb);
+        mpC = MediaPlayer.create(this, R.raw.scalec);
+        mpCs = MediaPlayer.create(this, R.raw.scalecs);
+        mpD = MediaPlayer.create(this, R.raw.scaled);
+        mpDs = MediaPlayer.create(this, R.raw.scaleds);
+        mpHighE = MediaPlayer.create(this, R.raw.scalehighe);
+        mpHighF = MediaPlayer.create(this, R.raw.scalehighf);
+        mpHighFs = MediaPlayer.create(this, R.raw.scalehighfs);
         //mpG = MediaPlayer.create(this, R.raw.scaleg);
 
     }
 
+    private void delayPlaying(int delay) throws InterruptedException {
+        try {
+            Thread.sleep(delay);
+        }
+        catch (InterruptedException e) {
+            Log.e("SynthesizerActivity", "Autio playback interrupted");
+        }
+    }
     public void onClick(View view) {
         Log.e("SynthesizeerActivity", "Challenge 0 Button clicked");
         try {
@@ -44,15 +77,6 @@ public class SynthesizerActivity extends AppCompatActivity {
         }
         catch (InterruptedException e) {
             e.printStackTrace();
-        }
-    }
-
-    private void delayPlaying(int delay) throws InterruptedException {
-        try {
-            Thread.sleep(delay);
-        }
-        catch (InterruptedException e) {
-            Log.e("SynthesizerActivity", "Autio playback interrupted");
         }
     }
     public void onButton1Click(View view) {
@@ -69,14 +93,27 @@ public class SynthesizerActivity extends AppCompatActivity {
         Log.e("SynthesizerActivity", "Button 2 clicked");
         mpF.start();
     }
-    public void onButton3lick(View view) {
-        Log.e("SynthesizeerActivity", "Challenge 1 Button clicked");
+
+    public void onChallenge1Click(View view) {
+        Log.e(TAG, "Challenge 1 Button clicked");
         try {
             mpE.start();
-            delayPlaying(WHOLE_NOTE);
-            mpF.start();
-        }
-        catch (InterruptedException e) {
+            delayPlaying(WHOLE_NOTE/2);
+            mpFs.start();
+            delayPlaying(WHOLE_NOTE/2);
+            mpG.start();
+            delayPlaying(WHOLE_NOTE/2);
+            mpA.start();
+            delayPlaying(WHOLE_NOTE/2);
+            mpB.start();
+            delayPlaying(WHOLE_NOTE/2);
+            mpCs.start();
+            delayPlaying(WHOLE_NOTE/2);
+            mpD.start();
+            delayPlaying(WHOLE_NOTE/2);
+            mpHighE.start();
+            delayPlaying(WHOLE_NOTE/2);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
