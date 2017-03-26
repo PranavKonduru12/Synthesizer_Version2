@@ -1,4 +1,4 @@
-package com.example.konduru91976.synthesizer_version2;
+package com.example.pranavkonduru.synthesizerversion3;
 
 import org.junit.Test;
 
